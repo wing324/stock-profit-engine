@@ -6,6 +6,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    print(request.method)
     if request.method == 'POST':
         ss = request.form['ss']
         am = request.form['am']
