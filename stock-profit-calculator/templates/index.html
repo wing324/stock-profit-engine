@@ -12,83 +12,73 @@
 <body>
      <div style="margin-top:30px; margin-left: 30px">
          <h1>Compute your Stock Profit</h1>
-            <form method="POST" name = "form">
-                <div class="form-group row">
-                    <label for="ss" class="col-sm-2 col-form-label">Stock Symbol</label>
-                    <div class="col-sm-4">
-                        <input type="text" required id="ss" name="ss" class="form-control" style="width: 150px">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="am" class="col-sm-2 col-form-label">Allotment(Number of shares)</label>
-                    <div class="col-sm-4">
-                        <input type="number" required id="am" name="am" class="form-control" style="width: 150px" placeholder="0">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="fsp" class="col-sm-2 col-form-label">Final Share Price(in dollars)</label>
-                    <div class="col-sm-4">
-                        <input type="number" step="0.01" required id="fsp" name="fsp" class="form-control" style="width: 150px" placeholder="0.00">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="sc" class="col-sm-2 col-form-label">Sell Commission(in dollars)</label>
-                    <div class="col-sm-4">
-                        <input type="number" step="0.01" required id="sc" name="sc" class="form-control" style="width: 150px" placeholder="0.00">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="isp" class="col-sm-2 col-form-label">Inital Share Price(in dollars)</label>
-                    <div class="col-sm-4">
-                        <input type="number" step="0.01" required id="isp" name="isp" class="form-control" style="width: 150px" placeholder="0.00">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="bc" class="col-sm-2 col-form-label">Buy Commission(in dollars)</label>
-                    <div class="col-sm-4">
-                        <input type="number" step="0.01" required id="bc" name="bc" class="form-control" style="width: 150px" placeholder="0.00">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="cgtr" class="col-sm-2 col-form-label">Capital gain tax rate(in %)</label>
-                    <div class="col-sm-4">
-                        <input type="number" step="0.01" required id="cgtr" name="cgtr" class="form-control" style="width: 150px" placeholder="0.00">
-                    </div>
-                </div>
-{#                 <button type="button" class="btn btn-primary">Submit</button>#}
-                <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#stockProfitResult">Submit</button>
-                <button type="reset" class="btn btn-warning">Reset</button>
-{#                <input type="text" name = "result" placeholder = "result" readonly="readonly" value = "{{ RESULT }}"/>#}
-            </form>
-          <div class="modal fade"  id="stockProfitResult" tabindex="-1" role="dialog" aria-labelledby="stockProfitResultTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">Your Stock Profit</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <span><strong>Proceeds: ${{ proceeds }}</strong></span>
-                                <br />
-                                <span><strong>Costs: ${{ costs }}</strong></span>
-                                <br />
-                                <span><strong>Net Profit: ${{ net_profit }}</strong></span>
-                                <br />
-                                <span><strong>Return on Investment: ${{ roi }}</strong></span>
-                                <br />
-                                <span><strong>To break even, you should have a final share price of:</strong></span>
-                                <br/>
-                                <span><strong> ${{ expect_fsp }}</strong></span>
-
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <div class="row">
+                <div class="col-sm-4">
+                    <form id="calculator" method="POST">
+                        <div class="form-group row">
+                            <label for="ss" class="col-sm-4 col-form-label">Stock Symbol</label>
+                            <div class="col-sm-2">
+                                <input type="text" required id="ss" name="ss" class="form-control" style="width: 150px">
                             </div>
                         </div>
-                    </div>
-                </div>
+                        <div class="form-group row">
+                            <label for="am" class="col-sm-4 col-form-label">Allotment(Number of shares)</label>
+                            <div class="col-sm-2">
+                                <input type="number" required id="am" name="am" class="form-control" style="width: 150px" placeholder="0">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="fsp" class="col-sm-4 col-form-label">Final Share Price(in dollars)</label>
+                            <div class="col-sm-2">
+                                <input type="number" step="0.01" required id="fsp" name="fsp" class="form-control" style="width: 150px" placeholder="0.00">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="sc" class="col-sm-4 col-form-label">Sell Commission(in dollars)</label>
+                            <div class="col-sm-2">
+                                <input type="number" step="0.01" required id="sc" name="sc" class="form-control" style="width: 150px" placeholder="0.00">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="isp" class="col-sm-4 col-form-label">Inital Share Price(in dollars)</label>
+                            <div class="col-sm-2">
+                                <input type="number" step="0.01" required id="isp" name="isp" class="form-control" style="width: 150px" placeholder="0.00">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="bc" class="col-sm-4 col-form-label">Buy Commission(in dollars)</label>
+                            <div class="col-sm-2">
+                                <input type="number" step="0.01" required id="bc" name="bc" class="form-control" style="width: 150px" placeholder="0.00">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="cgtr" class="col-sm-4 col-form-label">Capital gain tax rate(in %)</label>
+                            <div class="col-sm-2">
+                                <input type="number" step="0.01" required id="cgtr" name="cgtr" class="form-control" style="width: 150px" placeholder="0.00">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#stockProfitResult">Submit</button>
+                        <button type="reset" class="btn btn-warning">Reset</button>
+                </form>
+            </div>
+                <div class="col-sm-4" style="background: lightyellow">
+                     <div class="form-group row">
+                         <label for="pc" class="col-sm-10 col-form-label"><strong>Proceeds:  </strong>${{ proceeds }}</label>
+                     </div>
+                     <div class="form-group row">
+                         <label for="cost" class="col-sm-10 col-form-label"><strong>Costs:  </strong>${{ costs }}</label>
+                     </div>
+                     <div class="form-group row">
+                         <label for="np" class="col-sm-10 col-form-label"><strong>Net Profits:  </strong>${{ net_profit }}</label>
+                     </div>
+                     <div class="form-group row">
+                         <label for="roi" class="col-sm-10 col-form-label"><strong>Return on Investment:  </strong>${{ roi }}</label>
+                     </div>
+                     <div class="form-group row">
+                         <label for="efsp" class="col-sm-10 col-form-label">To break even, you should have a final share price of:  ${{ expect_fsp }}</label>
+                     </div>
+                 </div>
+            </div>
         </div>
 </body>
 </html>

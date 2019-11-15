@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    print(request.method)
+    print("Method: "+request.method)
     if request.method == 'POST':
         ss = request.form['ss']
         am = request.form['am']
@@ -27,10 +27,10 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/profit')
-def hello_world():
-    return 'Your Profit Here: '
+# @app.route('/profit')
+# def hello_world():
+#     return 'Your Profit Here: '
 
 
 if __name__ == '__main__':
-    app.run(port=5000)
+    app.run(port=8080)
