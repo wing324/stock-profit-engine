@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, request
+from flask import Flask, render_template, request
 from Calculator import Calculator
 
 app = Flask(__name__)
@@ -6,7 +6,6 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    print("Method: "+request.method)
     if request.method == 'POST':
         ss = request.form['ss']
         am = request.form['am']
@@ -22,8 +21,10 @@ def index():
         net_profit = calculator.get_net_profit()
         roi = calculator.get_roi()
         expect_fsp = calculator.get_expect_fsp()
+        pp = calculator.get_purchase_price()
+        tax = calculator.get_tax()
 
-        return render_template('index.html', proceeds=proceeds, costs=costs, net_profit=net_profit, roi=roi, expect_fsp=expect_fsp)
+        return render_template('index.html', proceeds=proceeds, costs=costs, net_profit=net_profit, roi=roi, expect_fsp=expect_fsp, purchase_price=pp, buy_commision=bc, sell_commision=sc, tax=tax)
     return render_template('index.html')
 
 

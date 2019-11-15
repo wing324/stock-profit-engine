@@ -32,3 +32,10 @@ class Calculator:
         commission = self.bc + self.sc
         expect_fsp = commission / self.am + self.isp
         return expect_fsp
+
+    def get_purchase_price(self):
+        return self.am * self.isp
+
+    def get_tax(self):
+        tax = self.cgtr/100 * (self.get_pc() - self.bc - self.sc - (self.am * self.isp))
+        return tax
