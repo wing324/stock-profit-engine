@@ -1,5 +1,8 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, flash
 from Calculator import Calculator
+from StockDetails import StockDetails
+from datetime import datetime
+import json
 
 app = Flask(__name__)
 
@@ -28,9 +31,24 @@ def index():
     return render_template('index.html')
 
 
-# @app.route('/profit')
-# def hello_world():
-#     return 'Your Profit Here: '
+@app.route('/stock', methods=['GET', 'POST'])
+def stock():
+    if request.method == 'POST':
+        stock = request.form['stock']
+        stockDetails = StockDetails(stock)
+        stockDict = stockDetails.get_stock_details()
+        if isinstance(stockDict, dict):
+            now = datetime.now()
+            ct = now.strftime("%Y-%m-%d %H:%M:%S")
+            fn = stockDict['companyName']
+            sp = stockDict['latestPrice']
+            vc = stockDict['change']
+            pc = stockDict['changePercent'] * 100
+            return render_template('stockDetails.html', ct=ct, fn=fn, sp=sp, vc=vc, pc=pc)
+        else:
+            flash("You should retype a valid stock symbol!")
+            return render_template('stockDetails.html')
+    return render_template('stockDetails.html')
 
 
 if __name__ == '__main__':
