@@ -1,0 +1,15 @@
+# [START app_yaml]
+runtime: python27
+api_version: 1
+threadsafe: true
+# [END app_yaml]
+
+# [START handlers]
+handlers:
+  - url: /
+    static_files: build/index.html
+    upload: build/index.html
+
+  - url: /
+    static_dir: build
+# [END handlers]

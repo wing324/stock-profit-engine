@@ -40,7 +40,7 @@ class UserInput extends Component{
           loading: true,
         });
         axios
-            .post('/api/results', this.state)
+            .post('https://group6-backend.appspot.com/api/results', this.state)
             .then(response => {
               this.setState({
                 show: true,

@@ -2,8 +2,10 @@ from flask import Flask
 from flask import  request, jsonify
 from StockDetails import StockDetails
 from StockHistory import StockHistory
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app, supports_credentials=True)
 
 ethical_list = ["AAPL", "NSRGY", "ADBE"]
 growth_list = ["OXLC", "GOOGL", "AMD"]
