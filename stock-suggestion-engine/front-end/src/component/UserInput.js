@@ -30,9 +30,10 @@ class UserInput extends Component{
   };
 
   handleSubmit = e => {
+    console.log("UserInput Submit: ");
+    console.log(this.props.form.getFieldValue("amount"));
+    console.log(this.props.form.getFieldValue("strategy"));
     e.preventDefault();
-    console.log("Submit");
-    console.log(this.state);
     this.props.form.validateFields((err, value) => {
       if (!err) {
         this.setState({

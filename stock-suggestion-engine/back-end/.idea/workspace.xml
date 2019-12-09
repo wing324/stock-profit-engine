@@ -2,19 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="34a26af5-aa5b-4953-81f9-82b7d5cafef5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/StockDetails.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/StockHistory.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../front-end/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../front-end/.idea/front-end.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../front-end/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../front-end/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../front-end/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../front-end/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../front-end/src/component/StockChart.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../front-end/src/component/UserInput.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../front-end/src/component/UserResult.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../front-end/src/component/WebTitle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front-end/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,8 +28,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/StockHistory.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+            <state relative-caret-position="245">
+              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
             </state>
           </provider>
         </entry>
@@ -159,18 +148,18 @@
       <updated>1575673830900</updated>
       <workItem from="1575673833967" duration="15409000" />
       <workItem from="1575762579268" duration="12022000" />
-      <workItem from="1575840162322" duration="6845000" />
+      <workItem from="1575840162322" duration="8183000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34276000" />
+    <option name="totallyTimeSpent" value="35614000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20911528" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20911528" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -222,8 +211,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/StockHistory.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+        <state relative-caret-position="245">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
