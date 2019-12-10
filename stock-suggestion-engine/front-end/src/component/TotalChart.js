@@ -3,17 +3,16 @@ import {
   Chart,
   Geom,
   Axis,
-  Tooltip
+  Tooltip,
+  Guide
 } from "bizcharts";
 
-class StockChart extends Component{
+class TotalChart extends Component{
   render() {
     const history = this.props.history;
     console.log(history);
     const keys = Object.keys(history);
     const values = Object.values(history);
-    console.log("From Chart: ");
-
     const data = [
       {
         date: keys[0],
@@ -49,7 +48,7 @@ class StockChart extends Component{
     };
     return (
         <div>
-          <Chart height={300} data={data} scale={cols} forceFit>
+          <Chart height={500} data={data} scale={cols} forceFit>
             <Axis name="date" />
             <Axis name="value"
                   label={{
@@ -72,10 +71,41 @@ class StockChart extends Component{
                   lineWidth: 1
                 }}
             />
+            <Guide>
+              <Guide.RegionFilter
+                  top
+                  start={['min', this.props.profit]}
+                  end={['max', 'min']}
+                  color="#cf1322"
+              />
+              <Guide.RegionFilter
+                  top
+                  start={['min', 'max']}
+                  end={['max', this.props.profit]}
+                  color="#3f8600"
+              />
+              <Guide.Line
+                  start={["min", this.props.profit]}
+                  end={["max", this.props.profit]}
+                  lineStyle= {{
+                    stroke: '#999',
+                    lineDash: [0, 0, 0],
+                    lineWidth: 1
+                  }}
+                  text={{
+                    content: "Initial Portfolio Value",
+                    position: "end",
+                    style: {
+                      fontSize: 18,
+                      textAlign: "end"
+                    }
+                  }}
+              />
+            </Guide>
           </Chart>
         </div>
     );
   }
 }
 
-export default StockChart;
+export default TotalChart;

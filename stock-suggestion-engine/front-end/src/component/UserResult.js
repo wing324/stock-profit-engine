@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import {Card, Row, Col, Statistic, Icon } from 'antd';
 import StockChart from './StockChart';
+import TotalChart from './TotalChart';
 
 class UserResult extends Component{
   render() {
     console.log("From UserResult");
+    console.log(this.props.result);
     const amount = this.props.result.resAmount;
     const strategies = this.props.strategies;
     const result = this.props.result.resStrategies;
@@ -15,13 +17,14 @@ class UserResult extends Component{
       for(let i = 0; i < resultSize; i++){
         const strategyStockListInfo = Object.values(result)[i];
         const strategyStockName = Object.keys(strategyStockListInfo);
-        const resultHistoryInfo = JSON.parse(Object.values(resultHistory)[i]);
+        const resultHistoryInfo = Object.values(resultHistory)[i];
         const stock0 = strategyStockListInfo[strategyStockName[0]];
         const stock1 = strategyStockListInfo[strategyStockName[1]];
         const stock2 = strategyStockListInfo[strategyStockName[2]];
         const history0 = resultHistoryInfo[strategyStockName[0]];
         const history1 = resultHistoryInfo[strategyStockName[1]];
         const history2 = resultHistoryInfo[strategyStockName[2]];
+        const sum = resultHistoryInfo["sum"];
         const statistic=[];
         for(let j = 0; j < 3; j++){
           if(strategyStockListInfo[strategyStockName[j]].change>=0){
@@ -31,7 +34,7 @@ class UserResult extends Component{
                     precision={2}
                     valueStyle={{ color: '#3f8600' }}
                     prefix={<Icon type="arrow-up" />}
-                    suffix={" ( +"+(strategyStockListInfo[strategyStockName[j]].changePercent*100).toFixed(2)+"% )" }
+                    suffix={" ( +"+strategyStockListInfo[strategyStockName[j]].changePercent+" )" }
                 />
             );
           } else {
@@ -41,7 +44,7 @@ class UserResult extends Component{
                     precision={2}
                     valueStyle={{ color: '#cf1322' }}
                     prefix={<Icon type="arrow-down" />}
-                    suffix={" ( "+(strategyStockListInfo[strategyStockName[j]].changePercent*100).toFixed(2)+"% )" }
+                    suffix={" ( "+strategyStockListInfo[strategyStockName[j]].changePercent+" )" }
                 />
             );
           }
@@ -89,6 +92,12 @@ class UserResult extends Component{
                       <StockChart history = {history2}/>
                     </Card>
                   </Col>
+                </Row>
+                <br />
+                <Row>
+                  <Card title={"Overall Portfolio Value Weekly Trend"} bordered={true}>
+                    <TotalChart history = {sum}  profit = {this.props.amount} />
+                  </Card>
                 </Row>
               </Card>
             </div>

@@ -40,7 +40,7 @@ class UserInput extends Component{
           loading: true,
         });
         axios
-            .post('https://group6-backend.appspot.com/api/results', this.state)
+            .post('/api/results', this.state)
             .then(response => {
               this.setState({
                 show: true,
@@ -136,7 +136,7 @@ class UserInput extends Component{
               </Form.Item>
             </Form>
           </div>
-          <UserResult  result = {this.state.resultData} strategies = {this.state.strategies}/>
+          <UserResult  result = {this.state.resultData} strategies = {this.state.strategies} amount = {this.state.amount}/>
           <Row gutter={16}>
             <Col span={8}>
               <Skeleton loading={this.state.loading} active title paragraph={{ rows: 4}}/>
