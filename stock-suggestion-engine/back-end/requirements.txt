@@ -10,7 +10,7 @@ Jinja2==2.10.3
 lxml==4.4.2
 MarkupSafe==1.1.1
 multitasking==0.0.9
-numpy==1.17.4
+numpy==1.22.0
 pandas==0.25.3
 python-dateutil==2.8.1
 pytz==2019.3
